@@ -1,2 +1,3 @@
-venv
-.DS_Store
+app/model/__pycache__/*
+app/model/language_detection.csv
+app/model/test.ipynb

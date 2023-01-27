@@ -1,7 +1,11 @@
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9
+FROM python:3.9
 
-COPY ./requirements.txt /app/requirements.txt
+WORKDIR /codebase 
 
-RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
+COPY requirements.txt /codebase/requirements.txt 
 
-COPY ./app /app/app
+COPY ./app/model /codebase/app/model
+
+COPY ./app/main.py /codebase/app/main.py
+
+RUN pip install -r /codebase/requirements.txt
